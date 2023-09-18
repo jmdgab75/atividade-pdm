@@ -50,9 +50,11 @@ async function getData() {
 
 
 async function addData() {
+    let nomeInput = documentGetElementById('nome').value
+    let idadeInput = documentGetElementById('idade').value
     const tx = await db.transaction('pessoas', 'readwrite');
     const store = tx.objectStore('pessoas');
-    store.add({ nome: 'Fulano' });
+    store.add({ nome: nomeInput, idadeInput });
     await tx.done;
 }
 
